@@ -128,11 +128,15 @@ O projeto deve ser entregue via LMS em um arquivo compactado com o nome do aluno
 
 ### Demonstração
 
-![img.png](images/img.png)
+![img_0.png](images/img_0.png)
 
 ![img_1.png](images/img_1.png)
 
 ![img_2.png](images/img_2.png)
+
+![img_6.png](images/img_6.png)
+
+![img_7.png](images/img_7.png)
 
 ![img_3.png](images/img_3.png)
 

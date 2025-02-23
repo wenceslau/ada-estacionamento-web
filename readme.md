@@ -77,6 +77,7 @@ Criação de uma API Web Rest para controlar veículos em um estacionamento.
   O projeto deve ser construído em Java usando Spring Framework.
   - Spring Boot Web para criar API Rest.
   - Spring Data JPA para persistência dos dados.
+  - Spring Validation para validações dos dados nos endpoints
   - Spring Security para autenticação básica dos usuários com usuário e senha
   - Banco de dados H2 em memória.
 
@@ -101,7 +102,7 @@ Criação de uma API Web Rest para controlar veículos em um estacionamento.
   **Infraestrutura** - Classes Controladoras, Repositórios com as entidades JPA e Serviços
 
 ### Na camada de domínio
-#### O sistema pode ser dividido em tres classes principais: Estacionamento Registro e Veículo. e classes para cada tipo de veículo  
+#### O sistema pode ser dividido em três classes principais: Estacionamento Registro e Veículo e classes para cada tipo de veículo  
   > A classe Estacionamento deve controlar a entrada e saída de veículos, verificar a lotação do estacionamento e expor dados para o relatório.
   
   > A classe Registro deve controlar o tempo de permanência e identificar o veículo.

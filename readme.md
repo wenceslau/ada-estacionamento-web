@@ -114,7 +114,7 @@ Criação de uma API Web Rest para controlar veículos em um estacionamento.
   > Para cada tipo de veículo deve ser criada uma classe que herda de Veículo e implementa os métodos abstratos.  
 
 ### A camada de infraestrutura 
-#### O sistema pode ser dividido em quatro pacotes, controladores, repositórios e serviços e configuração.
+#### O sistema pode ser dividido em quatro pacotes, controladores, repositórios, serviços e configuração.
   > O pacote controlador deve expor as classes Controllers com os endpoints da API e deve ser responsável por receber as requisições, chamar os métodos dos serviços e devolver a resposta.
    
   > O pacote de serviço deve expor as classes Services do Spring fazer a ponte com a camada de domínio e a persistência dos dados no repositório.

@@ -3,16 +3,17 @@ package com.ada.estacionamento.dominio.veiculos;
 
 import com.ada.estacionamento.dominio.Veiculo;
 
+import java.time.Duration;
 import java.util.Arrays;
 
 public enum VeiculoTipo {
     CARRO,
     MOTO;
 
-    public Veiculo criarInstancia(String placa) {
+    public Veiculo criarInstancia(String placa, Double valorHora, Double fracaoHora) {
         return switch (this) {
-            case CARRO -> new Carro(placa);
-            case MOTO -> new Moto(placa);
+            case CARRO -> new Carro(placa, valorHora, fracaoHora);
+            case MOTO -> new Moto(placa, valorHora, fracaoHora);
         };
     }
 

@@ -12,6 +12,7 @@ public class Estacionamento {
     private Integer capacidade;
     private final LocalDate dataReferencia;
     private final List<Registro> registros;
+    private final Pagamento pagamento;
 
     public Estacionamento(LocalDate dataReferencia, Integer capacidade) {
         if (capacidade <= 0){
@@ -20,6 +21,7 @@ public class Estacionamento {
         this.dataReferencia = dataReferencia;
         this.capacidade = capacidade;
         this.registros = new ArrayList<>();
+        this.pagamento = new Pagamento();
     }
 
     public void atualizaCapacidade(Integer capacidade) {
@@ -49,7 +51,7 @@ public class Estacionamento {
         }
     }
 
-    private Optional<Registro> procurarRegistro(Veiculo veiculo) {
+    public Optional<Registro> procurarRegistro(Veiculo veiculo) {
         return registros.stream()
                 .filter(r -> r.getVeiculo().getPlaca().equals(veiculo.getPlaca()))
                 .filter(r -> r.getHoraSaida() == null)
@@ -71,9 +73,26 @@ public class Estacionamento {
         return registro;
     }
 
-    private Registro registrarSaida(Registro registration) {
-        registration.setHoraSaida(LocalDateTime.now());
-        return registration;
+    private Registro registrarSaida(Registro registro) {
+
+        registro.setHoraSaida(LocalDateTime.now());
+
+        double valorPago = pagamento.processarValorPagar(registro.getVeiculo(),
+                registro.getDuracao().toMinutes());
+
+        registro.setValorPago(valorPago);
+
+        return registro;
+    }
+
+    // Getters e Setters
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public List<Registro> getRegistros() {
@@ -88,11 +107,4 @@ public class Estacionamento {
         return dataReferencia;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }

@@ -29,7 +29,13 @@ public class Registro {
 
         this.horaSaida = horaSaida;
         this.duracao = Duration.between(horaEntrada, horaSaida);
-        this.valorPago = veiculo.valorPagar(duracao.toMinutes());
+    }
+
+    public void setValorPago(Double valorPago) {
+        if (valorPago == null) {
+            throw new IllegalArgumentException("Valor pago é obrigatório");
+        }
+        this.valorPago = valorPago;
     }
 
     public Veiculo getVeiculo() {

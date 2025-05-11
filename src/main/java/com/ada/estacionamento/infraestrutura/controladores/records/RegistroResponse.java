@@ -24,8 +24,8 @@ public record RegistroResponse(
                 registro.getVeiculo().getPlaca(),
                 registro.getVeiculo().getTipo().name(),
                 registro.getHoraEntrada(),
-                registro.getVeiculo().valorHora(),
-                registro.getVeiculo().valorHoraAdicional(),
+                registro.getVeiculo().getValorHora(),
+                registro.getVeiculo().getFracaoHora(),
                 registro.getHoraSaida(),
                 duracao,
                 registro.getValorPago()

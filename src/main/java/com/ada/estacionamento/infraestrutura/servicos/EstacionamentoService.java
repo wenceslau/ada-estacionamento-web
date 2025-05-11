@@ -66,7 +66,8 @@ public class EstacionamentoService {
 
         // Cria uma instância do veículo com base no tipo informado
         var veiculoTipoEnum = VeiculoTipo.converter(veiculoTipo);
-        var veiculo = veiculoTipoEnum.criarInstancia(placa);
+        double valorHora = valorVeiculoHora(veiculoTipoEnum);
+        var veiculo = veiculoTipoEnum.criarInstancia(placa, valorHora, valorHora);
 
         // Registra o veículo no estacionamento
         var registro = estacionamento.registrarVeiculo(veiculo);
@@ -95,5 +96,12 @@ public class EstacionamentoService {
             throw new IllegalArgumentException("Estacionamento não foi iniciado");
         }
         return estacionamento.getCapacidade();
+    }
+
+    private double valorVeiculoHora(VeiculoTipo veiculoTipo) {
+        return switch (veiculoTipo){
+            case CARRO -> 5.0; // Buscar valor em um repositório
+            case MOTO -> 3.0; // Buscar valor em um repositório
+        };
     }
 }
